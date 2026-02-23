@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Buckhorn CFO | Utah's Fractional CFO Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --navy:#0B1F3A; --navy2:#122848; --gold:#C9933A; --gold2:#E8B05A;
+  --cream:#F8F5EF; --white:#FFFFFF; --gray:#6B7280; --light:#EEF2F7;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--navy);overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:72px;background:rgba(11,31,58,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(201,147,58,0.2);}
+.nav-logo{display:flex;align-items:center;text-decoration:none;background:rgba(255,255,255,0.95);border-radius:6px;padding:4px 10px 4px 6px;transition:background 0.2s;}
+.nav-logo:hover{background:#fff;}
+.nav-links{display:flex;gap:2rem;align-items:center;}
+.nav-links a{color:rgba(255,255,255,0.75);text-decoration:none;font-size:0.9rem;font-weight:500;letter-spacing:0.03em;transition:color 0.2s;}
+.nav-links a:hover{color:var(--gold2);}
+.nav-cta{background:var(--gold);color:var(--navy)!important;padding:0.55rem 1.4rem;border-radius:4px;font-weight:600!important;transition:background 0.2s,transform 0.15s!important;}
+.nav-cta:hover{background:var(--gold2)!important;transform:translateY(-1px);}
+
+/* HERO */
+#hero{min-height:100vh;background:var(--navy);display:flex;align-items:center;position:relative;overflow:hidden;padding:120px 5% 80px;}
+.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(201,147,58,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,147,58,0.04) 1px,transparent 1px);background-size:60px 60px;}
+.hero-glow{position:absolute;top:-200px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(201,147,58,0.12) 0%,transparent 70%);pointer-events:none;}
+.hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 420px;gap:80px;align-items:center;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(201,147,58,0.12);border:1px solid rgba(201,147,58,0.3);border-radius:100px;padding:0.35rem 1rem;font-size:0.8rem;font-weight:600;color:var(--gold2);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1.5rem;}
+.hero-eyebrow::before{content:'●';font-size:0.5rem;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+h1{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,5vw,4rem);font-weight:900;line-height:1.1;color:var(--white);margin-bottom:1.5rem;}
+h1 em{color:var(--gold);font-style:normal;}
+.hero-sub{font-size:1.1rem;line-height:1.75;color:rgba(255,255,255,0.65);margin-bottom:2.5rem;max-width:520px;}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem;}
+.btn-primary{display:inline-flex;align-items:center;gap:0.5rem;background:var(--gold);color:var(--navy);padding:1rem 2rem;border-radius:6px;font-weight:700;font-size:1rem;text-decoration:none;border:none;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background 0.2s,transform 0.15s,box-shadow 0.2s;box-shadow:0 4px 24px rgba(201,147,58,0.35);}
+.btn-primary:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 8px 32px rgba(201,147,58,0.45);}
+.btn-secondary{display:inline-flex;align-items:center;gap:0.5rem;background:transparent;color:var(--white);padding:1rem 2rem;border-radius:6px;border:1px solid rgba(255,255,255,0.25);font-weight:500;font-size:1rem;text-decoration:none;transition:border-color 0.2s,background 0.2s;}
+.btn-secondary:hover{border-color:var(--gold);background:rgba(201,147,58,0.08);}
+.hero-trust{display:flex;gap:2rem;align-items:center;}
+.trust-stat{text-align:center;}
+.trust-stat .num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--gold);display:block;}
+.trust-stat .label{font-size:0.75rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.06em;}
+.trust-divider{width:1px;height:40px;background:rgba(255,255,255,0.15);}
+
+/* HERO CARD */
+.hero-card{background:rgba(255,255,255,0.04);border:1px solid rgba(201,147,58,0.2);border-radius:16px;padding:2rem;backdrop-filter:blur(20px);}
+.hero-card-title{font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--white);margin-bottom:0.5rem;}
+.hero-card-sub{font-size:0.85rem;color:rgba(255,255,255,0.5);margin-bottom:1.5rem;}
+.hero-card-form{display:flex;flex-direction:column;gap:1rem;}
+.hero-card-form input,.hero-card-form select{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.15);border-radius:6px;padding:0.85rem 1rem;color:var(--white);font-family:'DM Sans',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s;width:100%;}
+.hero-card-form input::placeholder{color:rgba(255,255,255,0.35);}
+.hero-card-form input:focus,.hero-card-form select:focus{border-color:var(--gold);}
+.hero-card-form select option{background:var(--navy2);}
+.hero-card-note{font-size:0.75rem;color:rgba(255,255,255,0.35);text-align:center;margin-top:0.5rem;}
+
+/* LOGOS */
+#logos{background:var(--navy2);padding:2.5rem 5%;border-top:1px solid rgba(201,147,58,0.15);border-bottom:1px solid rgba(201,147,58,0.15);}
+.logos-label{text-align:center;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:1.5rem;}
+.logos-row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:2rem 3.5rem;}
+.logo-item{font-family:'DM Sans',sans-serif;font-size:0.85rem;font-weight:600;color:rgba(255,255,255,0.4);letter-spacing:0.05em;text-transform:uppercase;transition:color 0.2s;}
+.logo-item:hover{color:var(--gold2);}
+
+/* SECTIONS */
+#pain{background:var(--cream);padding:100px 5%;}
+.section-inner{max-width:1100px;margin:0 auto;}
+.section-tag{display:inline-block;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;}
+h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:900;line-height:1.15;margin-bottom:1.25rem;color:var(--navy);}
+
+/* PAIN CARDS */
+.pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:3rem;}
+.pain-card{background:var(--white);border-radius:12px;padding:2rem;border-left:4px solid var(--gold);box-shadow:0 2px 20px rgba(11,31,58,0.06);transition:transform 0.2s,box-shadow 0.2s;}
+.pain-card:hover{transform:translateY(-4px);box-shadow:0 8px 32px rgba(11,31,58,0.1);}
+.pain-icon{font-size:1.8rem;margin-bottom:1rem;}
+.pain-card h3{font-size:1.05rem;font-weight:700;color:var(--navy);margin-bottom:0.5rem;}
+.pain-card p{font-size:0.9rem;color:var(--gray);line-height:1.6;}
+
+/* ROI */
+#roi{background:var(--navy);padding:100px 5%;position:relative;overflow:hidden;}
+.roi-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.roi-text h2{color:var(--white);}
+.roi-text p{color:rgba(255,255,255,0.6);font-size:1rem;line-height:1.75;margin-top:1rem;}
+.roi-table{background:rgba(255,255,255,0.04);border:1px solid rgba(201,147,58,0.2);border-radius:16px;overflow:hidden;}
+.roi-row{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 1.5rem;border-bottom:1px solid rgba(255,255,255,0.07);}
+.roi-row:last-child{border-bottom:none;}
+.roi-row.highlight{background:rgba(201,147,58,0.1);}
+.roi-label{font-size:0.9rem;color:rgba(255,255,255,0.6);}
+.roi-val-bad{font-size:1rem;font-weight:700;color:#EF4444;}
+.roi-val-good{font-size:1rem;font-weight:700;color:#34D399;}
+.roi-val-gold{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;color:var(--gold);}
+.roi-head{display:flex;justify-content:space-between;padding:1rem 1.5rem;background:rgba(201,147,58,0.15);border-bottom:1px solid rgba(201,147,58,0.2);}
+.roi-head span{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--gold2);}
+
+/* SERVICES */
+#services{padding:100px 5%;background:var(--white);}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;margin-top:3rem;}
+.service-card{border:1px solid var(--light);border-radius:12px;padding:2rem;transition:border-color 0.2s,box-shadow 0.2s,transform 0.2s;}
+.service-card:hover{border-color:var(--gold);box-shadow:0 8px 32px rgba(201,147,58,0.12);transform:translateY(-4px);}
+.service-num{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:900;color:rgba(201,147,58,0.2);line-height:1;margin-bottom:0.75rem;}
+.service-card h3{font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:0.75rem;}
+.service-card p{font-size:0.9rem;color:var(--gray);line-height:1.6;margin-bottom:1rem;}
+.service-bullets{list-style:none;}
+.service-bullets li{font-size:0.85rem;color:var(--gray);padding:0.25rem 0;display:flex;align-items:center;gap:0.5rem;}
+.service-bullets li::before{content:'→';color:var(--gold);font-weight:700;}
+
+/* PROCESS */
+#process{background:var(--cream);padding:100px 5%;}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;margin-top:3rem;position:relative;}
+.process-steps::before{content:'';position:absolute;top:2rem;left:12.5%;right:12.5%;height:2px;background:linear-gradient(90deg,var(--gold) 0%,var(--gold2) 100%);opacity:0.3;}
+.step{text-align:center;position:relative;}
+.step-num{width:64px;height:64px;background:var(--navy);border:3px solid var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:900;color:var(--gold);position:relative;z-index:2;}
+.step h3{font-size:1rem;font-weight:700;margin-bottom:0.5rem;color:var(--navy);}
+.step p{font-size:0.85rem;color:var(--gray);line-height:1.6;}
+
+/* TESTIMONIALS */
+#testimonials{background:var(--navy);padding:100px 5%;position:relative;overflow:hidden;}
+#testimonials h2{color:var(--white);text-align:center;margin-bottom:0.5rem;}
+.testi-sub{text-align:center;color:rgba(255,255,255,0.5);font-size:1rem;margin-bottom:3rem;}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;max-width:1100px;margin:0 auto;}
+.testi-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:2rem;transition:border-color 0.2s,transform 0.2s;}
+.testi-card:hover{border-color:rgba(201,147,58,0.4);transform:translateY(-4px);}
+.testi-stars{color:var(--gold);font-size:1rem;letter-spacing:2px;margin-bottom:1rem;}
+.testi-card blockquote{font-size:0.9rem;line-height:1.7;color:rgba(255,255,255,0.75);font-style:italic;margin-bottom:1.25rem;}
+.testi-author{display:flex;align-items:center;gap:0.75rem;}
+.testi-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--gold),var(--navy2));display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1rem;font-weight:900;color:var(--white);flex-shrink:0;}
+.testi-name{font-size:0.9rem;font-weight:700;color:var(--white);}
+.testi-role{font-size:0.8rem;color:rgba(255,255,255,0.4);}
+
+/* FAQ */
+#faq{padding:100px 5%;background:var(--white);}
+#faq h2{text-align:center;margin-bottom:3rem;}
+.faq-list{max-width:760px;margin:0 auto;}
+.faq-item{border-bottom:1px solid var(--light);padding:1.5rem 0;}
+.faq-q{display:flex;justify-content:space-between;align-items:center;cursor:pointer;gap:1rem;font-weight:600;font-size:1rem;color:var(--navy);}
+.faq-q .icon{width:28px;height:28px;border-radius:50%;background:var(--light);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.2rem;color:var(--gold);font-weight:700;transition:background 0.2s,transform 0.3s;}
+.faq-item.open .faq-q .icon{background:var(--gold);color:var(--white);transform:rotate(45deg);}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.35s ease,padding 0.3s;font-size:0.95rem;color:var(--gray);line-height:1.75;}
+.faq-item.open .faq-a{max-height:300px;padding-top:0.75rem;}
+
+/* FINAL CTA */
+#cta-final{background:linear-gradient(135deg,var(--navy) 0%,#0D2D52 100%);padding:100px 5%;text-align:center;position:relative;overflow:hidden;}
+#cta-final h2{color:var(--white);font-size:clamp(2rem,4vw,3rem);margin-bottom:1rem;position:relative;}
+#cta-final p{color:rgba(255,255,255,0.6);font-size:1.1rem;margin-bottom:2.5rem;max-width:560px;margin-left:auto;margin-right:auto;position:relative;}
+.cta-final-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;}
+.phone-link{display:inline-flex;align-items:center;gap:0.5rem;color:rgba(255,255,255,0.7);font-size:0.9rem;text-decoration:none;margin-top:1.5rem;transition:color 0.2s;}
+.phone-link:hover{color:var(--gold2);}
+
+/* FOOTER */
+footer{background:#070F1D;padding:3rem 5%;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1.5rem;border-top:1px solid rgba(201,147,58,0.15);}
+.footer-links{display:flex;gap:1.5rem;flex-wrap:wrap;}
+.footer-links a{font-size:0.85rem;color:rgba(255,255,255,0.4);text-decoration:none;transition:color 0.2s;}
+.footer-links a:hover{color:var(--gold2);}
+.footer-copy{font-size:0.8rem;color:rgba(255,255,255,0.25);}
+
+/* ANIMATIONS */
+.fade-up{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease;}
+.fade-up.visible{opacity:1;transform:translateY(0);}
+
+/* TOAST */
+#toast{position:fixed;bottom:2rem;right:2rem;background:var(--navy);color:var(--white);border:1px solid var(--gold);border-radius:10px;padding:1rem 1.5rem;font-size:0.95rem;z-index:999;opacity:0;transform:translateY(20px);transition:opacity 0.3s,transform 0.3s;pointer-events:none;}
+#toast.show{opacity:1;transform:translateY(0);}
+
+/* RESPONSIVE */
+@media(max-width:900px){.hero-inner{grid-template-columns:1fr;gap:3rem;}.roi-inner{grid-template-columns:1fr;gap:3rem;}.process-steps{grid-template-columns:1fr 1fr;}.process-steps::before{display:none;}.nav-links{display:none;}}
+@media(max-width:560px){.process-steps{grid-template-columns:1fr;}.hero-trust{flex-wrap:wrap;gap:1rem;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="data:image/png;base64,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" alt="Buckhorn Advisory Services" style="height:42px;width:auto;display:block;"/>
+  </a>
+  <div class="nav-links">
+    <a href="#services">Services</a>
+    <a href="#process">Our Method</a>
+    <a href="#testimonials">Reviews</a>
+    <a href="#faq">FAQ</a>
+    <a href="#book" class="nav-cta">Book Free Demo &rarr;</a>
+  </div>
+</nav>
+
+<section id="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">Utah's Fractional CFO</div>
+      <h1>Stop Guessing.<br/>Start <em>Growing.</em></h1>
+      <p class="hero-sub">Buckhorn CFO gives Utah small businesses executive-level financial leadership &mdash; bookkeeping, cash flow, forecasting, and strategy &mdash; at a fraction of the cost of a full-time hire.</p>
+      <div class="hero-ctas">
+        <a href="#book" class="btn-primary">&#128197; Book Your Free 15-Min Demo</a>
+        <a href="#roi" class="btn-secondary">See the ROI &rarr;</a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-stat"><span class="num">98%</span><span class="label">Client Satisfaction</span></div>
+        <div class="trust-divider"></div>
+        <div class="trust-stat"><span class="num">60+</span><span class="label">Companies Served</span></div>
+        <div class="trust-divider"></div>
+        <div class="trust-stat"><span class="num" style="font-size:1.1rem;">Custom</span><span class="label">Pricing for Every Business</span></div>
+      </div>
+    </div>
+    <div class="hero-card" id="book">
+      <div class="hero-card-title">Book Your Free 15-Min Demo</div>
+      <div class="hero-card-sub">No pressure. No commitment. Just clarity.</div>
+      <div class="hero-card-form">
+        <input type="text"  id="f_name"      placeholder="Your Name"/>
+        <input type="email" id="f_email"     placeholder="Business Email"/>
+        <input type="tel"   id="f_phone"     placeholder="Phone Number"/>
+        <select id="f_revenue">
+          <option value="" disabled selected>Company Revenue Range</option>
+          <option>Under $500K</option>
+          <option>$500K &ndash; $1M</option>
+          <option>$1M &ndash; $5M</option>
+          <option>$5M+</option>
+        </select>
+        <select id="f_challenge">
+          <option value="" disabled selected>Biggest Financial Challenge</option>
+          <option>Cash Flow Management</option>
+          <option>Bookkeeping / Reconciliation</option>
+          <option>Financial Reporting</option>
+          <option>Growth &amp; Forecasting</option>
+          <option>Bank Funding / Capital</option>
+        </select>
+        <button onclick="submitDemo()" class="btn-primary" style="justify-content:center;width:100%;margin-top:0.25rem;">
+          &#128197; Claim My Free Demo Spot
+        </button>
+        <p class="hero-card-note">Or call: (208) 681-3593 &middot; Mon&ndash;Fri 7am&ndash;5pm</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="logos">
+  <p class="logos-label">Trusted by 60+ growing Utah businesses</p>
+  <div class="logos-row">
+    <span class="logo-item">Western Mountain, Inc.</span>
+    <span class="logo-item">Absolute Pool Care</span>
+    <span class="logo-item">Streamline Precision</span>
+    <span class="logo-item">Auto SOS</span>
+    <span class="logo-item">Bison Off-Road</span>
+    <span class="logo-item">Boardwalk Wooden Puzzles</span>
+    <span class="logo-item">Code 4 LED</span>
+    <span class="logo-item">My Girlfriend's Quilt Shoppe</span>
+  </div>
+</section>
+
+<section id="pain">
+  <div class="section-inner">
+    <span class="section-tag fade-up">Sound Familiar?</span>
+    <h2 class="fade-up">Running a business is hard.<br/>Your finances shouldn't make it harder.</h2>
+    <div class="pain-grid">
+      <div class="pain-card fade-up"><div class="pain-icon">&#128201;</div><h3>"I don't know if I'm actually profitable."</h3><p>You're generating revenue but can't tell where the money is going &mdash; or whether you'll make payroll next month.</p></div>
+      <div class="pain-card fade-up"><div class="pain-icon">&#128218;</div><h3>"My books are always behind."</h3><p>Reconciliations are months out of date, tax season is a nightmare, and your accountant is constantly waiting on you.</p></div>
+      <div class="pain-card fade-up"><div class="pain-icon">&#127974;</div><h3>"I can't get the bank to fund my growth."</h3><p>Lenders want clean financials and projections you don't have &mdash; so you're stuck bootstrapping when you should be scaling.</p></div>
+      <div class="pain-card fade-up"><div class="pain-icon">&#128184;</div><h3>"A full-time CFO is way out of my budget."</h3><p>A great CFO costs $150K&ndash;$300K per year in salary alone. You need the expertise without the overhead.</p></div>
+      <div class="pain-card fade-up"><div class="pain-icon">&#128302;</div><h3>"I'm making decisions blind."</h3><p>No dashboards, no forecasts, no visibility. Every strategic decision is a gut call with no data to back it up.</p></div>
+      <div class="pain-card fade-up"><div class="pain-icon">&#128293;</div><h3>"I'm the CFO, CEO, and janitor."</h3><p>You're spending 20% of your week on finances when you should be selling, building, and leading.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="roi">
+  <div class="hero-grid-bg"></div>
+  <div class="roi-inner section-inner">
+    <div class="roi-text fade-up">
+      <span class="section-tag" style="color:var(--gold2)">The Math Is Simple</span>
+      <h2>Why Fractional CFO is the Smartest Hire You'll Make</h2>
+      <p>A full-time CFO in Utah runs $150,000&ndash;$250,000 in salary alone &mdash; before benefits, equity, and overhead. Buckhorn gives you the same financial leadership at a custom price built around your business.</p>
+      <br/>
+      <p style="color:rgba(255,255,255,0.5);font-size:0.85rem;">Most clients recoup their Buckhorn investment within the first 60 days through improved cash flow and identified financial leaks alone.</p>
+      <br/>
+      <a href="#book" class="btn-primary" style="display:inline-flex;margin-top:1rem;">Book My Free Demo &rarr;</a>
+    </div>
+    <div class="roi-table fade-up">
+      <div class="roi-head"><span>Option</span><span>Annual Cost</span></div>
+      <div class="roi-row"><span class="roi-label">Full-Time CFO (Salary + Benefits)</span><span class="roi-val-bad">$180,000+</span></div>
+      <div class="roi-row"><span class="roi-label">Full-Time Bookkeeper</span><span class="roi-val-bad">$55,000+</span></div>
+      <div class="roi-row"><span class="roi-label">Big Accounting Firm (Utah)</span><span class="roi-val-bad">$40,000+</span></div>
+      <div class="roi-row highlight"><span class="roi-label" style="color:var(--white);font-weight:700;">&#10003; Buckhorn Fractional CFO</span><span class="roi-val-gold">Custom Pricing</span></div>
+      <div class="roi-row" style="border-top:1px solid rgba(201,147,58,0.3);"><span class="roi-label" style="font-weight:700;color:rgba(255,255,255,0.8);">Your Potential Annual Savings</span><span class="roi-val-good">$100,000+</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="section-inner">
+    <span class="section-tag fade-up">What We Do</span>
+    <h2 class="fade-up">Everything your finances need.<br/>Nothing you don't.</h2>
+    <div class="services-grid">
+      <div class="service-card fade-up"><div class="service-num">01</div><h3>Fractional CFO Services</h3><p>Strategic financial leadership on demand &mdash; without the full-time cost.</p><ul class="service-bullets"><li>Budgeting &amp; Forecasting</li><li>Cash Flow Management</li><li>Strategic Planning</li></ul></div>
+      <div class="service-card fade-up"><div class="service-num">02</div><h3>Fractional Bookkeeping</h3><p>Accurate, up-to-date books using the latest software &mdash; so you're never behind.</p><ul class="service-bullets"><li>Account Reconciliation</li><li>Payroll Processing</li><li>Financial Statement Prep</li></ul></div>
+      <div class="service-card fade-up"><div class="service-num">03</div><h3>Data Analysis &amp; Reporting</h3><p>Real-time financial dashboards and insights that drive decisions &mdash; not guesses.</p><ul class="service-bullets"><li>Cash Flow Forecasting</li><li>Trend Analysis</li><li>Custom KPI Dashboards</li></ul></div>
+      <div class="service-card fade-up"><div class="service-num">04</div><h3>Bank Funding Solutions</h3><p>We prepare your business to get the capital it needs to grow and scale.</p><ul class="service-bullets"><li>Loan Application Assistance</li><li>Statement Preparation</li><li>Collateral Evaluation</li></ul></div>
+      <div class="service-card fade-up"><div class="service-num">05</div><h3>Business Transitions</h3><p>Expert guidance through mergers, acquisitions, and succession planning.</p><ul class="service-bullets"><li>M&amp;A Advisory</li><li>Succession Planning</li><li>Business Valuation</li></ul></div>
+      <div class="service-card fade-up" style="border-color:var(--gold);background:linear-gradient(135deg,rgba(201,147,58,0.05),rgba(201,147,58,0.02));"><div class="service-num" style="color:var(--gold);">&rarr;</div><h3>Not Sure Where to Start?</h3><p>Book a free 15-minute demo and we'll pinpoint exactly where your finances are leaking money.</p><br/><a href="#book" class="btn-primary" style="font-size:0.9rem;padding:0.75rem 1.25rem;">Book Free Demo</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="section-inner">
+    <span class="section-tag fade-up">How It Works</span>
+    <h2 class="fade-up" style="text-align:center;">From messy books to financial clarity<br/>in 4 simple steps.</h2>
+    <div class="process-steps">
+      <div class="step fade-up"><div class="step-num">1</div><h3>Free 15-Min Demo</h3><p>We diagnose your biggest financial pain points and show you exactly what Buckhorn can do.</p></div>
+      <div class="step fade-up"><div class="step-num">2</div><h3>Evaluation &amp; Plan</h3><p>We dive into your accounting system, identify gaps, and build a custom roadmap to hit your goals.</p></div>
+      <div class="step fade-up"><div class="step-num">3</div><h3>Action &amp; Implementation</h3><p>Buckhorn implements the plan and works alongside you through every step.</p></div>
+      <div class="step fade-up"><div class="step-num">4</div><h3>Reports &amp; Growth</h3><p>Regular reports keep you on track. We maintain, adjust, and keep pushing your business forward.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="testimonials">
+  <div class="hero-grid-bg"></div>
+  <div style="position:relative;z-index:2;max-width:1100px;margin:0 auto;">
+    <span class="section-tag" style="display:block;text-align:center;margin-bottom:0.5rem;">Client Stories</span>
+    <h2>Real results from real<br/>Utah businesses.</h2>
+    <p class="testi-sub">98% client satisfaction &mdash; here's what they're saying.</p>
+    <div class="testi-grid">
+      <div class="testi-card fade-up"><div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>"Great forward thinking company. Trevor has excellent business acumen and is grounded in sound business practices. I have been a client since inception and am very pleased. Give Trevor a call &mdash; you will be glad you did."</blockquote><div class="testi-author"><div class="testi-avatar">T</div><div><div class="testi-name">Todd Taylor</div><div class="testi-role">CEO, Western Mountain Inc.</div></div></div></div>
+      <div class="testi-card fade-up"><div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>"I could not recommend Trevor and his team enough. His services have improved my clients' financial visibility and helped them negotiate expansion plans and increase bonding capacity."</blockquote><div class="testi-author"><div class="testi-avatar">A</div><div><div class="testi-name">Adam Doss</div><div class="testi-role">Owner, Absolute Pool Care</div></div></div></div>
+      <div class="testi-card fade-up"><div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>"Trevor has been a crucial asset to our business. He has shown great leadership strength and business abilities, with strength of moral character in diligence, honesty, and hard-work."</blockquote><div class="testi-author"><div class="testi-avatar">Z</div><div><div class="testi-name">Zane Gillette</div><div class="testi-role">CEO, Streamline Precision</div></div></div></div>
+      <div class="testi-card fade-up"><div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>"Working with Trevor has given us a more in-depth understanding of our business. We see more clearly where we have been, where we are, and where we are going to go!"</blockquote><div class="testi-author"><div class="testi-avatar">M</div><div><div class="testi-name">Mike Thurgood</div><div class="testi-role">Co-Owner, My Girlfriend's Quilt Shoppe</div></div></div></div>
+      <div class="testi-card fade-up"><div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>"Trevor and his team do an amazing job. He's not afraid to roll up his sleeves and dig into the details. I highly recommend him if you are looking for an experienced CFO with a diverse background."</blockquote><div class="testi-author"><div class="testi-avatar">B</div><div><div class="testi-name">Brad Allen</div><div class="testi-role">Partner CPA, Davis Allen</div></div></div></div>
+      <div class="testi-card fade-up"><div class="testi-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><blockquote>"Trevor and his team provide excellent and accurate information about my business that I can trust and rely on to help me make the best decisions for my business' future."</blockquote><div class="testi-author"><div class="testi-avatar">J</div><div><div class="testi-name">Jerum Arnold</div><div class="testi-role">Owner, Auto SOS</div></div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="section-inner">
+    <span class="section-tag fade-up" style="display:block;text-align:center;">FAQ</span>
+    <h2 class="fade-up">Everything you're wondering about<br/>working with Buckhorn.</h2>
+    <div class="faq-list">
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What exactly is a fractional CFO?<span class="icon">+</span></div><div class="faq-a">A fractional CFO is a seasoned financial executive who works with your company part-time or on a contract basis. You get all the strategic expertise of a Fortune 500 CFO &mdash; cash flow management, financial forecasting, bank relationships &mdash; without paying a $180,000+ annual salary. Buckhorn pricing is custom-built around your business size and needs.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How is Buckhorn different from my accountant or bookkeeper?<span class="icon">+</span></div><div class="faq-a">Your accountant looks backward &mdash; they file taxes and record history. Buckhorn looks forward. We use your financial data to build strategies, forecast cash flow, identify growth opportunities, and help you make smarter decisions before problems arise. Most clients use Buckhorn alongside their existing accountant.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What size companies do you typically work with?<span class="icon">+</span></div><div class="faq-a">We primarily work with Utah small and mid-size businesses generating between $500K and $10M in annual revenue. If you're too small for a full-time CFO but big enough to need real financial strategy, Buckhorn is built for you.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What happens during the free 15-minute demo?<span class="icon">+</span></div><div class="faq-a">We'll spend 15 minutes learning about your business, identifying your biggest financial pain points, and showing you exactly how Buckhorn would approach your situation. There's zero pressure and zero obligation. If it's not a fit, we'll tell you and point you in the right direction.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">How quickly will I see results?<span class="icon">+</span></div><div class="faq-a">Most clients identify their first financial inefficiency within the first 30 days. Meaningful improvements in cash flow visibility, reporting accuracy, and strategic clarity typically occur within 60&ndash;90 days.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Do I have to commit to a long-term contract?<span class="icon">+</span></div><div class="faq-a">We structure engagements based on your needs. Some clients prefer month-to-month flexibility, while others benefit from longer commitments that allow deeper strategic work. We'll discuss the right structure for your business during your free demo.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="cta-final">
+  <div class="hero-glow"></div>
+  <h2 class="fade-up">Ready to stop guessing<br/>and start growing?</h2>
+  <p class="fade-up">Book your free 15-minute demo and find out exactly what Buckhorn can do for your business. No pressure. No commitment. Just clarity.</p>
+  <div class="cta-final-btns fade-up">
+    <a href="#book" class="btn-primary" style="font-size:1.1rem;padding:1.1rem 2.2rem;">&#128197; Book My Free Demo</a>
+  </div>
+  <div style="position:relative;">
+    <a href="tel:2086813593" class="phone-link">&#128222; Or call us: (208) 681-3593 &middot; Mon&ndash;Fri 7am&ndash;5pm MST</a>
+  </div>
+</section>
+
+<footer>
+  <a href="#" style="display:flex;align-items:center;text-decoration:none;background:rgba(255,255,255,0.95);border-radius:6px;padding:4px 10px 4px 6px;">
+    <img src="data:image/png;base64,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" alt="Buckhorn Advisory Services" style="height:36px;width:auto;display:block;"/>
+  </a>
+  <div class="footer-links">
+    <a href="#services">Services</a>
+    <a href="#process">Our Method</a>
+    <a href="#testimonials">Reviews</a>
+    <a href="#faq">FAQ</a>
+    <a href="mailto:tarnold@buckthetrend.co">tarnold@buckthetrend.co</a>
+    <a href="tel:2086813593">(208) 681-3593</a>
+  </div>
+  <span class="footer-copy">&copy; 2025 Buckhorn Advisory Services &middot; Utah</span>
+</footer>
+
+<div id="toast"></div>
+
+<script>
+const SHEET_WEBHOOK = "https://script.google.com/macros/s/AKfycbweiwxne9J7A91e9SLcCIwQ10fWV3Brmoy-rHMvs75n-GMLFdt1hipfQP849QMvnpSj/exec";
+const CALENDLY     = "https://calendly.com/bethersagency/30min";
+
+function showToast(msg, duration) {
+  var t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  setTimeout(function(){ t.classList.remove("show"); }, duration || 3000);
+}
+
+function submitDemo() {
+  var name      = document.getElementById("f_name").value.trim();
+  var email     = document.getElementById("f_email").value.trim();
+  var phone     = document.getElementById("f_phone").value.trim();
+  var revenue   = document.getElementById("f_revenue").value;
+  var challenge = document.getElementById("f_challenge").value;
+
+  if (!name || !email || !phone) {
+    showToast("Please fill in your name, email, and phone number.");
+    return;
+  }
+
+  var btn = document.querySelector("button[onclick='submitDemo()']");
+  btn.textContent = "Submitting...";
+  btn.disabled = true;
+
+  var payload = {
+    timestamp: new Date().toLocaleString("en-US", {timeZone:"America/Denver"}),
+    name: name, email: email, phone: phone,
+    revenue: revenue || "Not specified",
+    challenge: challenge || "Not specified"
+  };
+
+  if (SHEET_WEBHOOK !== "YOUR_GOOGLE_APPS_SCRIPT_URL_HERE") {
+    fetch(SHEET_WEBHOOK, {
+      method: "POST", mode: "no-cors",
+      headers: {"Content-Type":"application/json"},
+      body: JSON.stringify(payload)
+    }).catch(function(){});
+  }
+
+  setTimeout(function() {
+    var url = CALENDLY + "?name=" + encodeURIComponent(name) + "&email=" + encodeURIComponent(email);
+    window.open(url, "_blank");
+    showToast("Opening Calendly... your info has been saved!", 4000);
+    btn.textContent = "Redirecting to Calendly...";
+    btn.disabled = false;
+  }, 700);
+}
+
+function toggleFaq(el) {
+  var item   = el.closest(".faq-item");
+  var isOpen = item.classList.contains("open");
+  document.querySelectorAll(".faq-item").forEach(function(i){ i.classList.remove("open"); });
+  if (!isOpen) item.classList.add("open");
+}
+
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e, i) {
+    if (e.isIntersecting) {
+      setTimeout(function(){ e.target.classList.add("visible"); }, i * 80);
+    }
+  });
+}, {threshold:0.1, rootMargin:"0px 0px -40px 0px"});
+document.querySelectorAll(".fade-up").forEach(function(el){ observer.observe(el); });
+
+document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+  a.addEventListener("click", function(e) {
+    var target = document.querySelector(a.getAttribute("href"));
+    if (target) { e.preventDefault(); target.scrollIntoView({behavior:"smooth", block:"start"}); }
+  });
+});
+</script>
+</body>
+</html>
